@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Luchas</string>
+    <string name="wwe">WWE</string>
+    <string name="cmll">CMLL</string>
+    <string name="aaa">AAA</string>
+    <string name="njpw">NJPW</string>
+    <string name="test">Test de Conocimientos</string>
+    <string name="titulo">Título</string>
+    <string name="empresa">Empresa</string>
+    <string name="fecha">Fecha</string>
 </resources>
