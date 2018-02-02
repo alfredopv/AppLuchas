@@ -15,9 +15,6 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        imagen = (ImageView)findViewById(R.id.imageSplash);
-        imagen.setImageResource(R.drawable.lucha);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

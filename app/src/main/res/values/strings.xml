@@ -8,4 +8,5 @@
     <string name="titulo">Título</string>
     <string name="empresa">Empresa</string>
     <string name="fecha">Fecha</string>
+    <string name="instruccion">SELECCIONA UNA EMPRESA</string>
 </resources>

@@ -1,8 +1,12 @@
 package com.example.alfredo.luchas;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.alfredo.luchas.clases.Empresa;
 
 public class SeleccionActivity extends Activity {
 
@@ -23,4 +27,50 @@ public class SeleccionActivity extends Activity {
         aaa.setImageResource(R.drawable.aaa_cover);
         cmll.setImageResource(R.drawable.cmll_cover);
     }
+
+    public void ActivaCMLL(View view){
+        Empresa empresa = new Empresa();
+        empresa.nombre = "Consejo Mundial de Lucha Libre";
+        empresa.pais = "México";
+        empresa.presidente = "Paco Alonso";
+        empresa.fechaFundacion = "1933";
+        Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
+        intent.putExtra("empresa", empresa);
+        startActivity(intent);
+    }
+
+    public void ActivaAAA(View view){
+        Empresa empresa = new Empresa();
+        empresa.nombre = "Asistencia Asesoría y Administración";
+        empresa.pais = "México";
+        empresa.presidente = "Marisela Peña";
+        empresa.fechaFundacion = "1992";
+        Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
+        intent.putExtra("empresa", empresa);
+        startActivity(intent);
+    }
+
+    public void ActivaWWE(View view){
+        Empresa empresa = new Empresa();
+        empresa.nombre = "World Wrestling Entertainment";
+        empresa.pais = "Estados Unidos";
+        empresa.presidente = "Vincent Kennedy McMahon";
+        empresa.fechaFundacion = "1952";
+        Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
+        intent.putExtra("empresa", empresa);
+        startActivity(intent);
+    }
+
+    public void ActivaNJPW(View view){
+        Empresa empresa = new Empresa();
+        empresa.nombre = "New Japan Pro Wrestling";
+        empresa.pais = "Japón";
+        empresa.presidente = "Kaname Tezuka";
+        empresa.fechaFundacion = "1972";
+        Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
+        intent.putExtra("empresa", empresa);
+        startActivity(intent);
+    }
+
+
 }
