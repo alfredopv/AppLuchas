@@ -1,7 +1,9 @@
 package com.example.alfredo.luchas;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ public class MainActivity extends Activity {
     private TextView nombre, pais, presidente, fecha;
     private ImageView imagen;
     private ImageButton noticias, campeones, videos, test;
+    private int value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,9 @@ public class MainActivity extends Activity {
 
         Empresa empresa = (Empresa)getIntent().getSerializableExtra("empresa");
         nombre.setText(empresa.nombre);
+        value = empresa.id;
+
+
         pais.setText("País: " + empresa.pais);
         presidente.setText("Presidente: " + empresa.presidente);
         fecha.setText("Año de Fundación: " + empresa.fechaFundacion);
@@ -56,7 +62,25 @@ public class MainActivity extends Activity {
         campeones.setImageResource(R.drawable.campeones);
         videos.setImageResource(R.drawable.videos);
         test.setImageResource(R.drawable.test);
-
-
     }
+
+    public void SiguientePagina(View view){
+        switch(view.getId()){
+            case R.id.botonNoticias:
+                System.out.print("Noticias");
+                break;
+            case R.id.botonCampeones:
+                Intent intent = new Intent(MainActivity.this, ListaCampeones.class);
+                intent.putExtra("numeroEmpresa", value);
+                startActivity(intent);
+                break;
+            case R.id.botonVideos:
+                System.out.print("Videos");
+                break;
+            case R.id.botonTest:
+                System.out.print("Test");
+                break;
+        }
+    }
+
 }

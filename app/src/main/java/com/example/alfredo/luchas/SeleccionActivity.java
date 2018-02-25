@@ -34,6 +34,7 @@ public class SeleccionActivity extends Activity {
         empresa.pais = "México";
         empresa.presidente = "Paco Alonso";
         empresa.fechaFundacion = "1933";
+        empresa.id = 1;
         Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
         intent.putExtra("empresa", empresa);
         startActivity(intent);
@@ -45,6 +46,7 @@ public class SeleccionActivity extends Activity {
         empresa.pais = "México";
         empresa.presidente = "Marisela Peña";
         empresa.fechaFundacion = "1992";
+        empresa.id = 0;
         Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
         intent.putExtra("empresa", empresa);
         startActivity(intent);
@@ -56,6 +58,7 @@ public class SeleccionActivity extends Activity {
         empresa.pais = "Estados Unidos";
         empresa.presidente = "Vincent Kennedy McMahon";
         empresa.fechaFundacion = "1952";
+        empresa.id = 2;
         Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
         intent.putExtra("empresa", empresa);
         startActivity(intent);
@@ -67,6 +70,7 @@ public class SeleccionActivity extends Activity {
         empresa.pais = "Japón";
         empresa.presidente = "Kaname Tezuka";
         empresa.fechaFundacion = "1972";
+        empresa.id = 3;
         Intent intent =  new Intent(SeleccionActivity.this,MainActivity.class);
         intent.putExtra("empresa", empresa);
         startActivity(intent);

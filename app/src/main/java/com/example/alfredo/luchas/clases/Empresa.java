@@ -8,4 +8,5 @@ import java.io.Serializable;
 
 public class Empresa implements Serializable{
     public String nombre, pais, presidente, fechaFundacion;
+    public int id;
 }
