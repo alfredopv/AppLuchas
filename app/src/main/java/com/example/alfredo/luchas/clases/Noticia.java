@@ -7,6 +7,5 @@ import java.util.Date;
  */
 
 public class Noticia {
-    public String titulo, empresa, imagen, video;
-    public Date fecha;
+    public String titulo, autor, fecha, texto, imagen, fuente;
 }

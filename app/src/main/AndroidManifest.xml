@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SeleccionActivity" />
-        <activity android:name=".ListaCampeones"></activity>
+        <activity android:name=".ListaCampeones" />
+        <activity android:name=".ListaNoticias"></activity>
     </application>
 
 </manifest>

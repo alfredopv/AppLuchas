@@ -11,7 +11,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.alfredo.luchas.adapters.CampeonesAdapter;
+import com.example.alfredo.luchas.adapters.NoticiasAdapter;
 import com.example.alfredo.luchas.clases.Campeon;
+import com.example.alfredo.luchas.clases.Noticia;
 import com.example.alfredo.luchas.clases.VolleySingleton;
 
 import org.json.JSONArray;
@@ -20,10 +22,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ListaCampeones extends Activity {
+public class ListaNoticias extends Activity {
 
     private ListView listView;
-    private CampeonesAdapter adapter;
+    private NoticiasAdapter adapter;
     private int numeroEmpresa;
     private String link;
 
@@ -32,24 +34,22 @@ public class ListaCampeones extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lista_noticias);
+
         System.out.print("Me inicie");
         numeroEmpresa = (int)getIntent().getSerializableExtra("numeroEmpresa");
-        //tipoListado = (String)getIntent().getSerializableExtra("tipo");
 
-        setContentView(R.layout.activity_lista_campeones);
-
-        listView = (ListView)findViewById(R.id.listaCampeones);
+        listView = (ListView)findViewById(R.id.listaNoticias);
         link = "https://ddom.000webhostapp.com/ddom/campeones.json";
 
-        adapter = new CampeonesAdapter(this, R.layout.campeon_layout, new ArrayList<Campeon>());
+        adapter = new NoticiasAdapter(this, R.layout.noticia_lista_layout, new ArrayList<Noticia>());
         listView.setAdapter(adapter);
         mQueue = VolleySingleton.getInstance(this).getRequestQueue();
 
-        jsonCampeones(getJSONString(link),adapter);
-
+        jsonNoticias(getJSONString(link),adapter);
     }
 
-    private void jsonCampeones(String url, final CampeonesAdapter adapter){
+    private void jsonNoticias(String url, final NoticiasAdapter adapter){
         adapter.clear();
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -59,18 +59,17 @@ public class ListaCampeones extends Activity {
                     JSONArray jsonArray = response.getJSONArray("empresas");
                     JSONObject jsonObject = jsonArray.getJSONObject(numeroEmpresa);
                     System.out.println(jsonObject);
-                    JSONArray luchadores = jsonObject.getJSONArray("campeones");
-                    for(int i = 0; i < luchadores.length(); i++){
-                        JSONObject luchador = luchadores.getJSONObject(i);
-                        Campeon c = new Campeon();
-                        c.nombre = luchador.getString("luchador");
-                        System.out.println(c.nombre);
-                        c.edad = luchador.getString("nacimiento");
-                        c.experiencia = luchador.getString("debut");
-                        c.nacionalidad = luchador.getString("nacionalidad");
-                        c.campeonato = luchador.getString("titulo");
-                        c.foto = luchador.getString("imagen");
-                        adapter.add(c);
+                    JSONArray noticias = jsonObject.getJSONArray("noticias");
+                    for(int i = 0; i < noticias.length(); i++){
+                        JSONObject noticia = noticias.getJSONObject(i);
+                        Noticia n = new Noticia();
+                        n.titulo = noticia.getString("titulo");
+                        n.fecha = noticia.getString("fecha");
+                        n.autor = noticia.getString("autor");
+                        n.texto = noticia.getString("texto");
+                        n.imagen = noticia.getString("imagen");
+                        n.fuente = noticia.getString("fuente");
+                        adapter.add(n);
                     }
                     adapter.notifyDataSetChanged(); //actualiza la vista
                 } catch (JSONException e) {
@@ -94,5 +93,4 @@ public class ListaCampeones extends Activity {
         System.out.println(builtUri.toString());
         return builtUri.toString();
     }
-
 }

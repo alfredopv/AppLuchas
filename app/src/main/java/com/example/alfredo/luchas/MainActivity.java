@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.example.alfredo.luchas.clases.Empresa;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends Activity {
 
     private TextView nombre, pais, presidente, fecha;
@@ -67,12 +65,16 @@ public class MainActivity extends Activity {
     public void SiguientePagina(View view){
         switch(view.getId()){
             case R.id.botonNoticias:
-                System.out.print("Noticias");
-                break;
-            case R.id.botonCampeones:
-                Intent intent = new Intent(MainActivity.this, ListaCampeones.class);
+                Intent intent = new Intent(MainActivity.this, ListaNoticias.class);
                 intent.putExtra("numeroEmpresa", value);
                 startActivity(intent);
+                break;
+            case R.id.botonCampeones:
+                Intent intent2 = new Intent(MainActivity.this, ListaCampeones.class);
+                intent2.putExtra("numeroEmpresa", value);
+                System.out.print("Campeones");
+                //intent2.putExtra("tipo", "campeones");
+                startActivity(intent2);
                 break;
             case R.id.botonVideos:
                 System.out.print("Videos");
