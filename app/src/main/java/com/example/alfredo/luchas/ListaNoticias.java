@@ -1,9 +1,13 @@
 package com.example.alfredo.luchas;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -47,6 +51,18 @@ public class ListaNoticias extends Activity {
         mQueue = VolleySingleton.getInstance(this).getRequestQueue();
 
         jsonNoticias(getJSONString(link),adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Noticia n = adapter.getItem(i);
+                Intent intent = new Intent(ListaNoticias.this, NoticiaMainActivity.class);
+                intent.putExtra("noticia", n);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void jsonNoticias(String url, final NoticiasAdapter adapter){
