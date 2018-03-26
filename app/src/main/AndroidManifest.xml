@@ -22,7 +22,8 @@
         <activity android:name=".SeleccionActivity" />
         <activity android:name=".ListaCampeones" />
         <activity android:name=".ListaNoticias" />
-        <activity android:name=".NoticiaMainActivity"></activity>
+        <activity android:name=".NoticiaMainActivity" />
+        <activity android:name=".ListaVideosActivity"></activity>
     </application>
 
 </manifest>

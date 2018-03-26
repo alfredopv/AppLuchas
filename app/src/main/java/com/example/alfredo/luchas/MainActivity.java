@@ -77,7 +77,9 @@ public class MainActivity extends Activity {
                 startActivity(intent2);
                 break;
             case R.id.botonVideos:
-                System.out.print("Videos");
+                Intent intent3 = new Intent(MainActivity.this, ListaVideosActivity.class);
+                intent3.putExtra("numeroEmpresa", value);
+                startActivity(intent3);
                 break;
             case R.id.botonTest:
                 System.out.print("Test");
