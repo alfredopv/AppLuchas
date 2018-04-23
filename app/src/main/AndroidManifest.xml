@@ -11,19 +11,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SeleccionActivity" />
-        <activity android:name=".ListaCampeones" />
-        <activity android:name=".ListaNoticias" />
-        <activity android:name=".NoticiaMainActivity" />
-        <activity android:name=".ListaVideosActivity"></activity>
+        <activity android:name=".SeleccionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ListaCampeones"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ListaNoticias"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NoticiaMainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ListaVideosActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".YoutubeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".QuizActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ResultadoTestActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

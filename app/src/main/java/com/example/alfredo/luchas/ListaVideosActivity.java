@@ -1,8 +1,11 @@
 package com.example.alfredo.luchas;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -43,6 +46,16 @@ public class ListaVideosActivity extends Activity {
         mQueue = VolleySingleton.getInstance(this).getRequestQueue();
 
         jsonVideos(getJSONString(link),adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String clave = adapter.getItem(i).id;
+                Intent intent = new Intent(ListaVideosActivity.this, YoutubeActivity.class);
+                intent.putExtra("idvideo", clave);
+                startActivity(intent);
+            }
+        });
 
     }
 

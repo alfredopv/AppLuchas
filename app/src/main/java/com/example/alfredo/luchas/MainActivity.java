@@ -82,7 +82,9 @@ public class MainActivity extends Activity {
                 startActivity(intent3);
                 break;
             case R.id.botonTest:
-                System.out.print("Test");
+                Intent intent4 = new Intent(MainActivity.this, QuizActivity.class);
+                intent4.putExtra("numeroEmpresa", value);
+                startActivity(intent4);
                 break;
         }
     }
